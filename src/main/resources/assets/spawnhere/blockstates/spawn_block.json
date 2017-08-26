@@ -1,0 +1,39 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "spawnhere:spawn_block",
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "normal": [
+      {}
+    ],
+    "inventory": [
+      {}
+    ],
+    "metadata=0": [
+      {}
+    ],
+    "metadata=1": [
+      {
+        "textures": {
+          "all": "spawnhere:blocks/spawn_ambient"
+        }
+      }
+    ],
+    "metadata=2": [
+      {
+        "textures": {
+          "all": "spawnhere:blocks/spawn_passive"
+        }
+      }
+    ],
+    "metadata=3": [
+      {
+        "textures": {
+          "all": "spawnhere:blocks/spawn_water"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "modid": "spawnhere",
+    "name": "SpawnHere",
+    "description": "Adds a block which mobs will spawn on more CPU efficiently then vanilla spawning",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "logoFile": "logo.png",
+    "url": "https://github.com/CJ-MC-Mods/SpawnHere",
+    "updateJSON": "minecraftforge.net/versions.json",
+    "authorList": [
+      "CJ Miller (cjm721)"
+    ],
+    "credits": ""
+  }
+]

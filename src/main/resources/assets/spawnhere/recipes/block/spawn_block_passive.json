@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "spawnhere:spawn_block",
+    "data": 2,
+    "count": 5
+  },
+  "pattern": [
+    "d d",
+    " d ",
+    "d d"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "d": {
+      "type": "forge:ore_dict",
+      "ore": "dirt"
+    }
+  }
+}

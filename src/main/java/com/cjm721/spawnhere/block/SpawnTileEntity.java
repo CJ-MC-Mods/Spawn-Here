@@ -51,14 +51,17 @@ public class SpawnTileEntity extends TileEntity implements ITickable {
                         return;
                     }
 
+                    float xF = x + 0.5F;
+                    float yF = y + 1;
+                    float zF = z + 0.5F;
 
-                    entityLiving.setLocationAndAngles(x, y + 1, z, world.rand.nextFloat() * 360.0F, 0.0F);
+                    entityLiving.setLocationAndAngles(xF, yF, zF, world.rand.nextFloat() * 360.0F, 0.0F);
 
-                    net.minecraftforge.fml.common.eventhandler.Event.Result canSpawn = net.minecraftforge.event.ForgeEventFactory.canEntitySpawn(entityLiving, world, x, y + 1, z, false);
+                    net.minecraftforge.fml.common.eventhandler.Event.Result canSpawn = net.minecraftforge.event.ForgeEventFactory.canEntitySpawn(entityLiving, world, xF, yF, zF, false);
                     boolean canSpawnHere = lookupCreatureOverride(type) || entityLiving.getCanSpawnHere();
                     boolean isNotColliding = entityLiving.isNotColliding();
                     if (canSpawn == net.minecraftforge.fml.common.eventhandler.Event.Result.ALLOW || (canSpawn == net.minecraftforge.fml.common.eventhandler.Event.Result.DEFAULT && canSpawnHere && isNotColliding)) {
-                        if (!net.minecraftforge.event.ForgeEventFactory.doSpecialSpawn(entityLiving, world, x, y, z))
+                        if (!net.minecraftforge.event.ForgeEventFactory.doSpecialSpawn(entityLiving, world, xF, yF, zF))
                             entityLiving.onInitialSpawn(world.getDifficultyForLocation(new BlockPos(entityLiving)), null);
 
                         if (entityLiving.isNotColliding()) {

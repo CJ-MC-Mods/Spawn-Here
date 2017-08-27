@@ -14,6 +14,7 @@ public class ItemBlockSpawn extends ItemBlock {
 
     public ItemBlockSpawn(BlockSpawn block) {
         super(block);
+        this.setHasSubtypes(true);
     }
 
     @Override

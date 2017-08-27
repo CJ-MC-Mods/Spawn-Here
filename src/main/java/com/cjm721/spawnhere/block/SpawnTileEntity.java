@@ -1,7 +1,9 @@
 package com.cjm721.spawnhere.block;
 
 import com.cjm721.spawnhere.config.SpawnHereConfig;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
@@ -14,6 +16,10 @@ import static com.cjm721.spawnhere.config.SpawnHereConfig.*;
 public class SpawnTileEntity extends TileEntity implements ITickable {
 
     private final EnumCreatureType type;
+
+    public SpawnTileEntity() {
+        this(EnumCreatureType.MONSTER);
+    }
 
     public SpawnTileEntity(EnumCreatureType type) {
         this.type = type;
@@ -40,6 +46,11 @@ public class SpawnTileEntity extends TileEntity implements ITickable {
             if (world.canCreatureTypeSpawnHere(type, spawnList, pos)) {
                 try {
                     EntityLiving entityLiving = spawnList.newInstance(getWorld());
+
+                    if(EntitySpawnPlacementRegistry.getPlacementForEntity(spawnList.entityClass) == EntityLiving.SpawnPlacementType.IN_WATER && world.getBlockState(pos.up()).getMaterial() != Material.WATER) {
+                        return;
+                    }
+
 
                     entityLiving.setLocationAndAngles(x, y + 1, z, world.rand.nextFloat() * 360.0F, 0.0F);
 

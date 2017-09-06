@@ -2,7 +2,7 @@ package com.cjm721.spawnhere;
 
 import com.cjm721.spawnhere.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -28,6 +28,13 @@ public class SpawnHere {
     @SidedProxy(clientSide = SpawnHere.PROXY_CLIENT, serverSide = SpawnHere.PROXY_SERVER)
     public static CommonProxy proxy;
 
+    public static final CreativeTabs creativeTab = new CreativeTabs("spawn_here_tab") {
+        @Override
+        public ItemStack getTabIconItem() {
+            return new ItemStack(Item.getItemFromBlock(CommonProxy.spawnBlock), 1, 0);
+        }
+    };
+
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         proxy.preInit(event);
@@ -42,12 +49,4 @@ public class SpawnHere {
     public void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(event);
     }
-
-    public static CreativeTabs SPAWN_BLOCK= new CreativeTabs("SpawnHere_Spawn_Block") {
-        @Override
-        public ItemStack getTabIconItem() {
-            return new ItemStack(proxy.spawnBlock);
-        }
-    };
-
 }

@@ -40,14 +40,14 @@ public class SpawnTileEntity extends TileEntity implements ITickable {
 
         WorldServer world = (WorldServer) getWorld();
 
-        if (!world.isAnyPlayerWithinRangeAt(x, y, z, minSpawn) && pos.distanceSq(x,y,z) <= maxSpawn*maxSpawn) {
+        if (!world.isAnyPlayerWithinRangeAt(x, y, z, minSpawn) && world.isAnyPlayerWithinRangeAt(x, y, z, maxSpawn)) {
             Biome.SpawnListEntry spawnList = world.getSpawnListEntryForTypeAt(type, pos);
 
             if (world.canCreatureTypeSpawnHere(type, spawnList, pos)) {
                 try {
                     EntityLiving entityLiving = spawnList.newInstance(getWorld());
 
-                    if(EntitySpawnPlacementRegistry.getPlacementForEntity(spawnList.entityClass) == EntityLiving.SpawnPlacementType.IN_WATER && world.getBlockState(pos.up()).getMaterial() != Material.WATER) {
+                    if (EntitySpawnPlacementRegistry.getPlacementForEntity(spawnList.entityClass) == EntityLiving.SpawnPlacementType.IN_WATER && world.getBlockState(pos.up()).getMaterial() != Material.WATER) {
                         return;
                     }
 

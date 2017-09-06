@@ -4,4 +4,4 @@ tile.spawn_block.ambient.name=Ambient Spawn Block
 tile.spawn_block.passive.name=Passive Spawn Block
 tile.spawn_block.water.name=Water Spawn Block
 
-itemGroup.SpawnHere_Spawn_Block=Spawn Here Blocks
+itemGroup.spawn_here_tab=Spawn Here Blocks`

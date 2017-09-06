@@ -4,7 +4,6 @@ import com.cjm721.spawnhere.block.BlockSpawn;
 import com.cjm721.spawnhere.item.ItemBlockSpawn;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
